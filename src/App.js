@@ -4,19 +4,25 @@ import './index.css';
 
 function App() {
 
-  const[data, setData] = useState({});
+  const[anime, setAnime] = useState({});
 
   useEffect(() => {
     fetch('https://api.jikan.moe/v4/characters/17/full')
       .then(response => response.json())
-      .then(json => setData(json))
+      .then(json => setAnime(json))
       .catch(error => console.error(error));
   }, []);
-  console.log(data);
+
+  const animeImage = anime.data.images.jpg.image_url;
+  const animeName = anime.data.name;
+  const animeAbout = anime.data.about;
+  console.log(anime);
   return (
     <div className="App">
       <h1>Naruto facts</h1>
-      <img src={data.data.images.jpg.image_url} alt="" />
+      <img src={animeImage} alt="" />
+      <h2>{animeName}</h2>
+      <p>{animeAbout}</p>
       
 
     </div>

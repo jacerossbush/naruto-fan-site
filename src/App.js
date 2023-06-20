@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-
+import CharacterList from './CharacterList';
 
 function App() {
 
@@ -31,7 +31,11 @@ function App() {
       <img src={characterImage} alt="" />
       <h2>{characterName}</h2>
       <p>{characterAbout}</p>
-      <button onClick={() => setCharacterId(characterId === 14 ? 17 : 14)}>Change characters</button>
+      {CharacterList.map((character => 
+        (
+          <button onClick={() => setCharacterId(character.id)}>{character.name}</button>
+        )
+        ))}
     </div>
   );
 }

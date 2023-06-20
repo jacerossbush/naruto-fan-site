@@ -4,9 +4,13 @@ import './index.css';
 
 function App() {
 
+  // to catch the api that calls all the characters
   const[characterList, setCharacterList] = useState({});
 
+  // to catch the api for each character as they change
   const[character, setCharacter] = useState({});
+
+  // to change which character is displayed 
   const[characterId, setCharacterId] = useState(17);
 
   useEffect(() => {
@@ -23,14 +27,15 @@ function App() {
       .catch(error => console.error(error));
   }, [characterId]);
 
+  // catch the array of characters
   const characters = characterList?.data;
 
-
+  // simplify the data that is being displayed with variables
   const characterImage = character.data?.images?.jpg?.image_url;
   const characterName = character.data?.name;
   const characterAbout = character.data?.about;
-  console.log(characterList)
-  console.log(characters);
+
+  
   return (
     <div className="App">
       <h1>Naruto facts</h1>

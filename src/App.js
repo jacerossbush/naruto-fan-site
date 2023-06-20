@@ -24,7 +24,7 @@ function App() {
   }, [characterId]);
 
   const characters = characterList?.data;
-  
+
 
   const characterImage = character.data?.images?.jpg?.image_url;
   const characterName = character.data?.name;
@@ -37,16 +37,16 @@ function App() {
       <img src={characterImage} alt="" />
       <h2>{characterName}</h2>
       <p>{characterAbout}</p>
-      <button onClick={() => setCharacterId(characterId === 14 ? 17 : 14)}>Change characters</button>     
-       {/* <h1>{characters[0].character.mal_id}</h1> */}
+      <button onClick={() => setCharacterId(characterId === 14 ? 17 : 14)}>Change characters</button>
+       <h1>{characters[0].character.mal_id}</h1>
        {characters.map(item => (
         <>
-          <h3>{item.character.name}</h3>
+          <button onClick={()=> setCharacterId(item.character.mal_id)}>{item.character.name}</button>
         </>
 
        ))}
-      
-      
+
+
 
     </div>
   );

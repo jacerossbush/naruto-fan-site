@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import './index.css';
 import CharacterList from './CharacterList';
 
@@ -45,7 +46,7 @@ function App() {
           sx={{
             width: '25%',
             height: '100vh',
-            overflow: 'scroll'
+            overflowY: 'scroll'
           }}
           >
             <List>
@@ -62,13 +63,31 @@ function App() {
         </Box>
         <Box
           sx={{
-            width: '75%'
+            width: '75%',
+            overflowY: 'scroll'
           }}
         >
-          <h1>Naruto facts</h1>
-          <img src={characterImage} alt="" />
-          <h2>{characterName}</h2>
-          <p>{characterAbout}</p>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+            }}
+          >
+            <img src={characterImage} style={{maxWidth: "250px"}} alt="" />
+
+            <Typography variant="h2" gutterBottom>
+              {characterName}
+            </Typography>
+          </Box>
+          <Typography
+            variant="body1" 
+            gutterBottom
+            sx={{
+              padding: "20px"
+            }}>
+            {characterAbout}
+          </Typography>
         </Box>
       </Box>
     </div>

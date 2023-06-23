@@ -3,6 +3,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import './index.css';
 import CharacterList from './CharacterList';
 
@@ -33,70 +36,70 @@ function App() {
 
   
   return (
-    <div className="App">
-      <Box sx={{
-        height: '100vh',
-        width: '100%',
+    
+    <Box sx={{
+      height: '100vh',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center'
+      }}
+      >
+      <Box
+        sx={{
+          margin: 'auto',
         }}
-        >
-        {/* <Box
-          sx={{
-            width: '25%',
-            height: '100vh',
-            overflowY: 'scroll'
+      >
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={CharacterList}
+          sx={{ 
+            width: 300,
+            margin: '25px auto'
           }}
-          >
-            <List>
-            {CharacterList.map((character) => 
-            (
-              <ListItem disablePadding>
-                <ListItemButton component="a" onClick={() => setCharacterId(character.id)}>
-                  <ListItemText primary={character.label} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-            
-            </List>
-        </Box> */}
-        <Box
-          sx={{
-            width: '100%',
+          value={value}
+          onChange={(event, newValue) => {
+            if (newValue) {
+              setCharacterId(newValue.id);
+            }
+            setValue(newValue);
           }}
-        >
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={CharacterList}
-            sx={{ width: 300 }}
-            value={value}
-            onChange={(event, newValue) => {
-              if (newValue) {
-                setCharacterId(newValue.id);
-              }
-              setValue(newValue);
-            }}
 
-            renderInput={(params) => 
-            <TextField {...params} label="Characters" />}
-          />
-          <Box>
-            <img src={characterImage} style={{maxWidth: "250px"}} alt="" />
+          renderInput={(params) => 
+          <TextField {...params} label="Characters" />}
+        />
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component='img'
+              sx={{ height: 500}}
+              image={characterImage}
+              title={characterName}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {characterName}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {characterAbout}
+              </Typography>
+            </CardContent>
+          </Card>
+          {/* <img src={characterImage} style={{maxWidth: "250px"}} alt="" />
 
-            <Typography variant="h2" gutterBottom>
-              {characterName}
-            </Typography>
-          </Box>
-          <Typography
-            variant="body1" 
-            gutterBottom
-            sx={{
-              padding: "20px"
-            }}>
-            {characterAbout}
+          <Typography variant="h2" gutterBottom>
+            {characterName}
           </Typography>
-        </Box>
+        <Typography
+          variant="body1" 
+          gutterBottom
+          sx={{
+            padding: "20px"
+          }}>
+          {characterAbout}
+        </Typography> */}
       </Box>
-    </div>
+    </Box>
+  
   );
 }
 

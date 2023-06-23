@@ -70,11 +70,10 @@ function App() {
             sx={{ width: 300 }}
             value={value}
             onChange={(event, newValue) => {
-              console.log(`newvalue; ${newValue}`);
-              setCharacterId(newValue.id)
+              if (newValue) {
+                setCharacterId(newValue.id);
+              }
               setValue(newValue);
-              console.log(`value; ${value}`);
-
             }}
 
             renderInput={(params) => 

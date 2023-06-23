@@ -5,6 +5,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 import './index.css';
 import CharacterList from './CharacterList';
 
@@ -15,9 +17,9 @@ function App() {
   // to catch the api for each character as they change
   const[character, setCharacter] = useState({});
 
-  // const[characters, setCharacters] = useState(CharacterList);
+  const [value, setValue] = useState('');
 
-  // to change which character is displayed 
+ // to change which character is displayed 
   const[characterId, setCharacterId] = useState(17);
 
   useEffect(() => {
@@ -39,10 +41,9 @@ function App() {
       <Box sx={{
         height: '100vh',
         width: '100%',
-        display: "flex"
         }}
         >
-        <Box
+        {/* <Box
           sx={{
             width: '25%',
             height: '100vh',
@@ -60,20 +61,30 @@ function App() {
             ))}
             
             </List>
-        </Box>
+        </Box> */}
         <Box
           sx={{
-            width: '75%',
-            overflowY: 'scroll'
+            width: '100%',
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              alignItems: 'center',
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={CharacterList}
+            sx={{ width: 300 }}
+            value={value}
+            onChange={(event, newValue) => {
+              console.log(`newvalue; ${newValue}`);
+              setCharacterId(newValue.id)
+              setValue(newValue);
+              console.log(`value; ${value}`);
+
             }}
-          >
+
+            renderInput={(params) => 
+            <TextField {...params} label="Characters" />}
+          />
+          <Box>
             <img src={characterImage} style={{maxWidth: "250px"}} alt="" />
 
             <Typography variant="h2" gutterBottom>

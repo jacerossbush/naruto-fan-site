@@ -84,19 +84,6 @@ function App() {
               </Typography>
             </CardContent>
           </Card>
-          {/* <img src={characterImage} style={{maxWidth: "250px"}} alt="" />
-
-          <Typography variant="h2" gutterBottom>
-            {characterName}
-          </Typography>
-        <Typography
-          variant="body1" 
-          gutterBottom
-          sx={{
-            padding: "20px"
-          }}>
-          {characterAbout}
-        </Typography> */}
       </Box>
     </Box>
   

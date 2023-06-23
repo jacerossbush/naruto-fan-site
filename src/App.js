@@ -38,15 +38,19 @@ function App() {
   return (
     
     <Box sx={{
-      height: '100vh',
       width: '100%',
       display: 'flex',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      background: 'rgb(255,148,50)',
+      background: 'radial-gradient(circle, rgba(255,148,50,1) 0%, rgba(0,0,0,1) 100%)'
       }}
       >
       <Box
         sx={{
-          margin: 'auto',
+          margin: '10px auto',
+          padding: '10px',
+          backgroundColor: 'rgba(255,255,255,0.9)',
+          borderRadius: '20px'
         }}
       >
         <Autocomplete
@@ -55,7 +59,7 @@ function App() {
           options={CharacterList}
           sx={{ 
             width: 300,
-            margin: '25px auto'
+            margin: '25px auto',
           }}
           value={value}
           onChange={(event, newValue) => {

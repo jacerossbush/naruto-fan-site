@@ -448,10 +448,6 @@ const CharacterList = [
         id: 7310
         },
         {
-        label: "Matsuri",
-        id: 43972
-        },
-        {
         label: "Meizu",
         id: 16165
         },
@@ -738,10 +734,6 @@ const CharacterList = [
         {
         label: "Tsubaki",
         id: 17666
-        },
-        {
-        label: "Tsubaki",
-        id: 149424
         },
         {
         label: "Tsuchi, Kin",

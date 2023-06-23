@@ -38,6 +38,8 @@ function App() {
   return (
     
     <Box sx={{
+      height: 'auto',
+      minHeight: '100vh',
       width: '100%',
       display: 'flex',
       justifyContent: 'center',

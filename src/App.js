@@ -52,7 +52,9 @@ function App() {
           margin: '10px auto',
           padding: '10px',
           backgroundColor: 'rgba(255,255,255,0.9)',
-          borderRadius: '20px'
+          borderRadius: '20px',
+          width: '80%',
+          textAlign: 'center'
         }}
       >
         <Autocomplete
@@ -74,7 +76,10 @@ function App() {
           renderInput={(params) => 
           <TextField {...params} label="Characters" />}
         />
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ 
+            maxWidth: 345 ,
+            margin: 'auto'
+          }}>
             <CardMedia
               component='img'
               sx={{ height: 500}}
@@ -85,7 +90,7 @@ function App() {
               <Typography gutterBottom variant="h5" component="div">
                 {characterName}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={{whiteSpace: 'pre-wrap', textAlign: 'left'}} >
                 {characterAbout}
               </Typography>
             </CardContent>
